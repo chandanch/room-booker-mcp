@@ -1,0 +1,14 @@
+[project]
+name = "room-booking-mcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cryptography>=49.0.0",
+    "fastmcp>=3.4.4",
+    "httpx>=0.28.1",
+    "pydantic>=2.13.4",
+    "pyjwt>=2.13.0",
+    "python-dotenv>=1.2.2",
+]
