@@ -7,8 +7,19 @@ class UserContext(BaseModel):
     email: str | None = None
     name: str | None = None
     tenant_id: str | None = None
+
     scopes: set[str] = Field(default_factory=set)
     roles: set[str] = Field(default_factory=set)
+
+    @property
+    def permissions(self) -> set[str]:
+        """
+        Combine delegated scopes and application roles.
+
+        Delegated user tokens usually contain scopes.
+        Application/service tokens usually contain roles.
+        """
+        return self.scopes | self.roles
 
 
 class Room(BaseModel):
