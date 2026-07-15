@@ -14,7 +14,7 @@ def require_permission(
 
     if permission.value not in user.permissions:
         raise AuthorizationError(
-            f"Permission denied. Required permission: {permission.value}"
+            f"Permission denied!. Required permission: {permission.value}"
         )
 
 
