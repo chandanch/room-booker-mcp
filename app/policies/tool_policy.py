@@ -8,7 +8,7 @@ def require_permission(
     permission: Permission,
 ) -> None:
     """
-    Verify that the current authenticated principal has the required
+    Verify that the current authenticated user principal has the required
     delegated scope or application role.
     """
 
