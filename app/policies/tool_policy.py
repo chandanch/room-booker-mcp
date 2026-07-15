@@ -26,7 +26,7 @@ def require_any_permission(
 
     if user.permissions.isdisjoint(required):
         raise AuthorizationError(
-            "Permission denied. At least one of these permissions "
+            "Permission denied!. At least one of these permissions "
             f"is required: {sorted(required)}"
         )
 
