@@ -39,7 +39,7 @@ def register_room_tools(mcp):
     @mcp.tool
     def get_room_details(room_id: str):
         """
-        Retrieve details for a single meeting room.
+        Retrieve details for a single meeting room, enite room details.
         """
         user = get_current_user()
         require_permission(user, Permission.ROOM_READ)
