@@ -12,3 +12,9 @@ dependencies = [
     "pyjwt>=2.13.0",
     "python-dotenv>=1.2.2",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
