@@ -1,10 +1,10 @@
 from fastmcp import FastMCP
 from fastmcp.server.auth.providers.azure import AzureProvider
 
+from app.auth.context import get_current_user
 from app.config import get_settings
 from app.tools.bookings import register_booking_tools
 from app.tools.rooms import register_room_tools
-from app.auth.context import get_current_user
 
 settings = get_settings()
 
@@ -27,10 +27,6 @@ register_booking_tools(mcp)
 
 @mcp.tool
 def who_am_i() -> dict:
-    """
-    Return non-sensitive claims about the authenticated MCP caller.
-    Intended for development diagnostics.
-    """
     user = get_current_user()
 
     return {
@@ -41,3 +37,15 @@ def who_am_i() -> dict:
         "entra_roles": sorted(user.roles),
         "effective_permissions": sorted(user.permissions),
     }
+
+
+def main() -> None:
+    mcp.run(
+        transport="http",
+        host=settings.server_host,
+        port=settings.server_port,
+    )
+
+
+if __name__ == "__main__":
+    main()

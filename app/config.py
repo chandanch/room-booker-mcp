@@ -19,6 +19,16 @@ class Settings(BaseSettings):
         alias="MCP_REQUIRED_SCOPE",
     )
 
+    server_host: str = Field(
+        default="127.0.0.1",
+        alias="SERVER_HOST",
+    )
+
+    server_port: int = Field(
+        default=8000,
+        alias="SERVER_PORT",
+    )
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
