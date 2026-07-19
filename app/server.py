@@ -1,5 +1,3 @@
-import os
-
 from fastmcp import FastMCP
 from fastmcp.server.auth.providers.azure import AzureProvider
 from starlette.requests import Request
