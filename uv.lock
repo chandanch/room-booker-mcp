@@ -1184,6 +1184,7 @@ dependencies = [
     { name = "fastmcp", extra = ["azure"] },
     { name = "httpx" },
     { name = "pydantic" },
+    { name = "pydantic-settings" },
     { name = "pyjwt" },
     { name = "python-dotenv" },
 ]
@@ -1200,6 +1201,7 @@ requires-dist = [
     { name = "fastmcp", extras = ["azure"], specifier = ">=3.4.4" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pydantic", specifier = ">=2.13.4" },
+    { name = "pydantic-settings", specifier = ">=2.14.2" },
     { name = "pyjwt", specifier = ">=2.13.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
 ]
