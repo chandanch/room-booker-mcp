@@ -1,5 +1,9 @@
+import os
+
 from fastmcp import FastMCP
 from fastmcp.server.auth.providers.azure import AzureProvider
+from starlette.requests import Request
+from starlette.responses import JSONResponse
 
 from app.auth.context import get_current_user
 from app.config import get_settings
@@ -19,6 +23,7 @@ auth_provider = AzureProvider(
 mcp = FastMCP(
     name="Room Booking MCP Server",
     auth=auth_provider,
+    version=settings.mcp_version,
 )
 
 register_room_tools(mcp)
@@ -39,7 +44,19 @@ def who_am_i() -> dict:
     }
 
 
+@mcp.custom_route("/health", methods=["GET"])
+async def health(request: Request) -> JSONResponse:
+    return JSONResponse(
+        {
+            "status": "healthy",
+            "service": "room-booking-mcp",
+            "version": "0.1.0",
+        }
+    )
+
+
 def main() -> None:
+
     mcp.run(
         transport="http",
         host=settings.server_host,

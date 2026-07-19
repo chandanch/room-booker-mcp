@@ -29,6 +29,11 @@ class Settings(BaseSettings):
         alias="SERVER_PORT",
     )
 
+    mcp_version: str = Field(
+        default="0.1.0",
+        alias="MCP_VERSION",
+    )
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
